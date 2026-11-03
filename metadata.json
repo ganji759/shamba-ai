@@ -1,8 +1,0 @@
-{
-  "name": "Shamba AI",
-  "description": "AI-driven agricultural advisory platform for East African smallholder farmers with offline-first capabilities.",
-  "requestFramePermissions": [
-    "camera",
-    "geolocation"
-  ]
-}
