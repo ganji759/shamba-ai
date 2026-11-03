@@ -1,0 +1,18 @@
+name: Feature request
+description: Suggest a change.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem do you want to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What change do you suggest?
+  - type: textarea
+    id: users
+    attributes:
+      label: Who needs this? (farmers, extension officers, cooperatives, other)

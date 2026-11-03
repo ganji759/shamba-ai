@@ -1,0 +1,44 @@
+name: Wrong diagnosis report
+description: The app gave a wrong or doubtful result.
+labels: [wrong-diagnosis]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach photos that show people or exact farm locations.
+  - type: dropdown
+    id: crop
+    attributes:
+      label: Crop
+      options: [Maize, Cassava, Banana, Bean, Other]
+    validations:
+      required: true
+  - type: input
+    id: predicted
+    attributes:
+      label: What the app said
+      description: Class name and confidence, for example maize_streak_virus 82%.
+    validations:
+      required: true
+  - type: input
+    id: actual
+    attributes:
+      label: What you think it is
+      description: Name the condition and say how you know (expert, lab, other).
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: App version and model version
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Leaf part, growth stage, light, and the camera used.
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Image sharing
+      options:
+        - label: I can share the photo under the project data licence.

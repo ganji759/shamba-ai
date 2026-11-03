@@ -1,0 +1,127 @@
+name: Release model and web
+
+on:
+  workflow_dispatch:
+    inputs:
+      hf_repo:
+        description: Hugging Face model repo
+        default: Kwaba/shamba-crop-health
+        required: true
+      version:
+        description: Model version, for example v0.1.0
+        required: true
+      release_tag:
+        description: GitHub release tag with model artifacts. Leave empty to build a CI model.
+        required: false
+      push_space:
+        description: Also push the web build to a Hugging Face static Space
+        type: boolean
+        default: false
+      hf_space:
+        description: Hugging Face Space repo
+        default: Kwaba/shamba-ai
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  model:
+    runs-on: ubuntu-latest
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_REPO: ${{ inputs.hf_repo }}
+      VERSION: ${{ inputs.version }}
+      RELEASE_TAG: ${{ inputs.release_tag }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Get artifacts from a release
+        if: env.RELEASE_TAG != ''
+        run: |
+          mkdir -p ml/artifacts
+          gh release download "$RELEASE_TAG" --dir ml/artifacts --repo "$GITHUB_REPOSITORY"
+      - name: Build artifacts
+        if: env.RELEASE_TAG == ''
+        working-directory: ml
+        run: |
+          uv venv
+          uv pip install -e ".[dev]" --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
+          uv run --no-sync python scripts/make_ci_model.py
+      - name: Upload to Hugging Face
+        run: |
+          uv run --no-project --with huggingface_hub python - <<'PY'
+          import os
+          from pathlib import Path
+          from huggingface_hub import HfApi
+
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          repo = os.environ["HF_REPO"]
+          version = os.environ["VERSION"]
+          api.create_repo(repo, repo_type="model", exist_ok=True)
+
+          artifacts = Path("ml/artifacts")
+          if not artifacts.is_dir():
+              artifacts = Path("ml/runs/smoke/artifacts")
+          if not artifacts.is_dir():
+              raise SystemExit("no artifacts found")
+          api.upload_folder(
+              repo_id=repo,
+              folder_path=str(artifacts),
+              commit_message=f"Release {version}",
+          )
+          card = Path("ml/MODEL_CARD.md")
+          if card.exists():
+              api.upload_file(
+                  path_or_fileobj=str(card),
+                  path_in_repo="README.md",
+                  repo_id=repo,
+                  commit_message=f"Model card for {version}",
+              )
+          api.create_tag(repo, tag=version, exist_ok=True)
+          PY
+
+  space:
+    if: inputs.push_space
+    runs-on: ubuntu-latest
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_SPACE: ${{ inputs.hf_space }}
+      VERSION: ${{ inputs.version }}
+      VITE_BASE: /
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - name: Build web
+        working-directory: apps/web
+        run: |
+          npm ci
+          npm run build
+      - name: Add Space README
+        run: cp infra/hf-space/README.md apps/web/dist/README.md
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Push to Hugging Face Space
+        run: |
+          uv run --no-project --with huggingface_hub python - <<'PY'
+          import os
+          from huggingface_hub import HfApi
+
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          space = os.environ["HF_SPACE"]
+          api.create_repo(space, repo_type="space", space_sdk="static", exist_ok=True)
+          api.upload_folder(
+              repo_id=space,
+              repo_type="space",
+              folder_path="apps/web/dist",
+              commit_message=f"Web build {os.environ['VERSION']}",
+          )
+          PY

@@ -1,0 +1,4 @@
+project_id = "your-gcp-project"
+region     = "europe-west1"
+api_keys   = "replace-with-a-long-random-key"
+cors_origins = "https://your-user.github.io"
