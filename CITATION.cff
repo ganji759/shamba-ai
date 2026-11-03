@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use Shamba AI or its model, please cite it."
+title: "Shamba AI: offline crop-health diagnosis with PyTorch ExecuTorch"
+authors:
+  - family-names: Mugisho
+    given-names: Pacifique
+version: 2.0.0
+date-released: 2026-11-04
+license: Apache-2.0
+repository-code: "https://github.com/ganji759/shamba-ai"
+keywords:
+  - on-device AI
+  - ExecuTorch
+  - PyTorch
+  - agriculture
+  - plant disease
+  - East Africa
