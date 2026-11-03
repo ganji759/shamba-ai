@@ -1,0 +1,394 @@
+{
+  "version": "1.0.0",
+  "languages": ["en", "sw", "fr"],
+  "review": {
+    "status": "draft",
+    "note": "Written from public extension guidance (IITA, CABI PlantwisePlus, FAO, national research institutes). An agronomist must review every entry before a field pilot. Swahili and French text need a native-speaker review."
+  },
+  "ui": {
+    "retake_tips": {
+      "en": "I am not sure. Take a new photo: one leaf, filling the frame, in daylight, not blurred.",
+      "sw": "Sina uhakika. Piga picha mpya: jani moja, lijaze picha, kwenye mwanga wa mchana, isiwe na ukungu.",
+      "fr": "Je ne suis pas sûr. Prenez une nouvelle photo : une seule feuille, qui remplit l'image, à la lumière du jour, nette."
+    },
+    "safety": {
+      "en": "If you use a pesticide: read the label, wear gloves and a mask, keep children away, and respect the waiting time before harvest.",
+      "sw": "Ukitumia dawa: soma maelekezo, vaa glavu na barakoa, weka watoto mbali, na heshimu muda wa kusubiri kabla ya kuvuna.",
+      "fr": "Si vous utilisez un pesticide : lisez l'étiquette, portez des gants et un masque, éloignez les enfants et respectez le délai avant récolte."
+    },
+    "disclaimer": {
+      "en": "Shamba AI gives guidance, not a lab test. For serious or spreading problems, contact your extension officer.",
+      "sw": "Shamba AI inatoa mwongozo, si kipimo cha maabara. Kwa tatizo kubwa au linaloenea, wasiliana na afisa ugani.",
+      "fr": "Shamba AI donne des conseils, pas un test de laboratoire. Pour un problème grave ou qui s'étend, contactez votre agent de vulgarisation."
+    }
+  },
+  "crops": {
+    "bean": {"en": "Beans", "sw": "Maharage", "fr": "Haricot"},
+    "cassava": {"en": "Cassava", "sw": "Muhogo", "fr": "Manioc"},
+    "maize": {"en": "Maize", "sw": "Mahindi", "fr": "Maïs"},
+    "banana": {"en": "Banana", "sw": "Mgomba", "fr": "Bananier"}
+  },
+  "conditions": {
+    "bean_angular_leaf_spot": {
+      "crop": "bean",
+      "type": "fungus",
+      "scientific": "Pseudocercospora griseola",
+      "urgency": "medium",
+      "name": {"en": "Angular leaf spot", "sw": "Madoa pembe ya maharage", "fr": "Tache anguleuse du haricot"},
+      "summary": {
+        "en": "A fungal disease. Grey-brown spots with sharp corners form between the leaf veins. It spreads by rain splash and infected seed.",
+        "sw": "Ugonjwa wa kuvu. Madoa ya kijivu-kahawia yenye pembe hutokea kati ya mishipa ya jani. Huenea kwa matone ya mvua na mbegu zenye ugonjwa.",
+        "fr": "Maladie fongique. Des taches gris-brun à angles nets apparaissent entre les nervures. Elle se propage par les éclaboussures de pluie et les semences infectées."
+      },
+      "actions": {
+        "en": ["Remove and burn badly infected leaves.", "Do not work in the field when leaves are wet.", "If the disease spreads before flowering, ask an agro-dealer for a fungicide registered for beans (for example a copper or mancozeb product) and follow the label."],
+        "sw": ["Ondoa na uchome majani yaliyoathirika sana.", "Usifanye kazi shambani majani yakiwa na maji.", "Ugonjwa ukienea kabla ya kutoa maua, muulize muuzaji wa pembejeo dawa ya kuvu iliyosajiliwa kwa maharage (kwa mfano ya shaba au mancozeb) na ufuate maelekezo."],
+        "fr": ["Enlevez et brûlez les feuilles très atteintes.", "Ne travaillez pas dans le champ quand les feuilles sont mouillées.", "Si la maladie s'étend avant la floraison, demandez à un agro-dealer un fongicide homologué pour le haricot (par exemple à base de cuivre ou de mancozèbe) et suivez l'étiquette."]
+      },
+      "prevention": {
+        "en": ["Plant clean, certified seed.", "Rotate beans with maize or other non-legumes for 2 seasons.", "Bury or remove crop residue after harvest.", "Use tolerant varieties from your national research institute."],
+        "sw": ["Panda mbegu safi zilizothibitishwa.", "Badilisha maharage na mahindi au mazao yasiyo jamii ya kunde kwa misimu 2.", "Fukia au ondoa mabaki ya mazao baada ya kuvuna.", "Tumia aina zinazostahimili kutoka taasisi ya utafiti ya nchi yako."],
+        "fr": ["Semez des semences propres et certifiées.", "Faites une rotation avec le maïs ou d'autres non-légumineuses pendant 2 saisons.", "Enfouissez ou retirez les résidus après la récolte.", "Utilisez des variétés tolérantes de votre institut national de recherche."]
+      },
+      "escalate": {
+        "en": "Call your extension officer if more than half of the plants show spots before flowering.",
+        "sw": "Mpigie afisa ugani ikiwa zaidi ya nusu ya mimea ina madoa kabla ya kutoa maua.",
+        "fr": "Appelez votre agent de vulgarisation si plus de la moitié des plants ont des taches avant la floraison."
+      }
+    },
+    "bean_rust": {
+      "crop": "bean",
+      "type": "fungus",
+      "scientific": "Uromyces appendiculatus",
+      "urgency": "medium",
+      "name": {"en": "Bean rust", "sw": "Kutu ya maharage", "fr": "Rouille du haricot"},
+      "summary": {
+        "en": "A fungal disease. Small red-brown powdery spots form, mostly under the leaves. Wind carries the spores far.",
+        "sw": "Ugonjwa wa kuvu. Vidoa vidogo vya unga wa rangi nyekundu-kahawia hutokea, hasa chini ya majani. Upepo hubeba vimelea mbali.",
+        "fr": "Maladie fongique. De petites pustules poudreuses brun-rouge apparaissent, surtout sous les feuilles. Le vent transporte les spores loin."
+      },
+      "actions": {
+        "en": ["Remove the worst leaves and burn them.", "If rust appears early in the season, use a fungicide registered for bean rust and follow the label."],
+        "sw": ["Ondoa majani yaliyoathirika zaidi na uyachome.", "Kutu ikitokea mapema msimu, tumia dawa ya kuvu iliyosajiliwa kwa kutu ya maharage na ufuate maelekezo."],
+        "fr": ["Enlevez les feuilles les plus atteintes et brûlez-les.", "Si la rouille apparaît tôt dans la saison, utilisez un fongicide homologué contre la rouille du haricot et suivez l'étiquette."]
+      },
+      "prevention": {
+        "en": ["Plant rust-resistant varieties.", "Rotate crops and remove old bean plants.", "Do not plant new beans next to an infected field."],
+        "sw": ["Panda aina zinazostahimili kutu.", "Badilisha mazao na ondoa mimea ya zamani ya maharage.", "Usipande maharage mapya karibu na shamba lenye ugonjwa."],
+        "fr": ["Semez des variétés résistantes à la rouille.", "Faites une rotation et retirez les vieux plants de haricot.", "Ne semez pas de nouveaux haricots à côté d'un champ infecté."]
+      },
+      "escalate": {
+        "en": "Call your extension officer if rust covers many leaves before pods form.",
+        "sw": "Mpigie afisa ugani ikiwa kutu imefunika majani mengi kabla ya maganda kutokea.",
+        "fr": "Appelez votre agent de vulgarisation si la rouille couvre beaucoup de feuilles avant la formation des gousses."
+      }
+    },
+    "bean_healthy": {
+      "crop": "bean",
+      "type": "healthy",
+      "urgency": "none",
+      "name": {"en": "Healthy bean leaf", "sw": "Jani la maharage lenye afya", "fr": "Feuille de haricot saine"},
+      "summary": {
+        "en": "No disease signs found on this leaf.",
+        "sw": "Hakuna dalili za ugonjwa kwenye jani hili.",
+        "fr": "Aucun signe de maladie sur cette feuille."
+      },
+      "actions": {
+        "en": ["Keep checking your field once a week, from different spots."],
+        "sw": ["Endelea kukagua shamba lako mara moja kwa wiki, sehemu tofauti."],
+        "fr": ["Continuez à inspecter votre champ une fois par semaine, à différents endroits."]
+      },
+      "prevention": {
+        "en": ["Use clean seed and rotate crops each season."],
+        "sw": ["Tumia mbegu safi na ubadilishe mazao kila msimu."],
+        "fr": ["Utilisez des semences propres et faites une rotation chaque saison."]
+      }
+    },
+    "cassava_bacterial_blight": {
+      "crop": "cassava",
+      "type": "bacteria",
+      "scientific": "Xanthomonas phaseoli pv. manihotis",
+      "urgency": "high",
+      "name": {"en": "Cassava bacterial blight", "sw": "Baka bakteria la muhogo", "fr": "Bactériose vasculaire du manioc"},
+      "summary": {
+        "en": "A bacterial disease. Leaves show angular, water-soaked spots, then wilt and die. Shoots can die back. It spreads with infected cuttings, rain splash and tools.",
+        "sw": "Ugonjwa wa bakteria. Majani huonyesha madoa yenye pembe yanayoonekana kulowa maji, kisha hunyauka na kufa. Machipukizi yanaweza kukauka. Huenea kwa vipandikizi vyenye ugonjwa, matone ya mvua na zana.",
+        "fr": "Maladie bactérienne. Les feuilles montrent des taches anguleuses huileuses, puis flétrissent et meurent. Les pousses peuvent dépérir. Elle se propage par les boutures infectées, la pluie et les outils."
+      },
+      "actions": {
+        "en": ["Cut and burn infected shoots and leaves.", "Clean knives and hoes with bleach or fire after you touch sick plants.", "Do not take cuttings from this field."],
+        "sw": ["Kata na uchome machipukizi na majani yenye ugonjwa.", "Safisha visu na majembe kwa dawa ya kusafisha (bleach) au moto baada ya kugusa mimea yenye ugonjwa.", "Usichukue vipandikizi kutoka shamba hili."],
+        "fr": ["Coupez et brûlez les pousses et feuilles infectées.", "Nettoyez couteaux et houes à l'eau de Javel ou au feu après avoir touché des plants malades.", "Ne prenez pas de boutures dans ce champ."]
+      },
+      "prevention": {
+        "en": ["Plant cuttings only from healthy fields.", "Rotate with a cereal or legume for one season.", "Use tolerant varieties.", "Avoid working in the field in the rain."],
+        "sw": ["Panda vipandikizi kutoka mashamba yenye afya tu.", "Badilisha na nafaka au jamii ya kunde kwa msimu mmoja.", "Tumia aina zinazostahimili.", "Epuka kufanya kazi shambani wakati wa mvua."],
+        "fr": ["Plantez uniquement des boutures de champs sains.", "Faites une rotation avec une céréale ou une légumineuse pendant une saison.", "Utilisez des variétés tolérantes.", "Évitez de travailler dans le champ sous la pluie."]
+      },
+      "escalate": {
+        "en": "Call your extension officer if many plants wilt or shoots die back.",
+        "sw": "Mpigie afisa ugani ikiwa mimea mingi inanyauka au machipukizi yanakauka.",
+        "fr": "Appelez votre agent de vulgarisation si beaucoup de plants flétrissent ou si les pousses dépérissent."
+      }
+    },
+    "cassava_brown_streak": {
+      "crop": "cassava",
+      "type": "virus",
+      "scientific": "Cassava brown streak viruses (CBSV, UCBSV)",
+      "urgency": "critical",
+      "name": {"en": "Cassava brown streak disease", "sw": "Ugonjwa wa michirizi kahawia ya muhogo", "fr": "Maladie de la striure brune du manioc"},
+      "summary": {
+        "en": "A virus disease. Leaves show yellow patches along the veins. Stems can show brown streaks. Roots get brown, dry, rotten areas and become unfit to eat. Whiteflies and infected cuttings spread it.",
+        "sw": "Ugonjwa wa virusi. Majani huonyesha mabaka ya njano kando ya mishipa. Mashina yanaweza kuwa na michirizi ya kahawia. Mizizi hupata sehemu za kahawia, kavu na zilizooza, na haifai kuliwa. Inzi weupe na vipandikizi vyenye ugonjwa huueneza.",
+        "fr": "Maladie virale. Les feuilles montrent des plages jaunes le long des nervures. Les tiges peuvent avoir des stries brunes. Les racines ont des zones brunes, sèches et pourries et deviennent impropres à la consommation. Les aleurodes et les boutures infectées la propagent."
+      },
+      "actions": {
+        "en": ["There is no cure. Uproot and destroy infected plants early.", "If many plants are infected, harvest early to save roots before they rot.", "Never use cuttings from this field."],
+        "sw": ["Hakuna tiba. Ng'oa na uharibu mimea yenye ugonjwa mapema.", "Ikiwa mimea mingi imeathirika, vuna mapema kuokoa mizizi kabla haijaoza.", "Kamwe usitumie vipandikizi kutoka shamba hili."],
+        "fr": ["Il n'y a pas de traitement. Arrachez et détruisez tôt les plants infectés.", "Si beaucoup de plants sont infectés, récoltez tôt pour sauver les racines avant qu'elles pourrissent.", "N'utilisez jamais de boutures de ce champ."]
+      },
+      "prevention": {
+        "en": ["Get clean cuttings from certified multipliers.", "Plant tolerant varieties released in your country.", "Check new fields every 2 weeks for the first 3 months and remove sick plants."],
+        "sw": ["Pata vipandikizi safi kutoka kwa wazalishaji waliothibitishwa.", "Panda aina zinazostahimili zilizotolewa nchini kwako.", "Kagua mashamba mapya kila wiki 2 kwa miezi 3 ya kwanza na uondoe mimea yenye ugonjwa."],
+        "fr": ["Procurez-vous des boutures saines chez des multiplicateurs certifiés.", "Plantez des variétés tolérantes homologuées dans votre pays.", "Inspectez les nouveaux champs toutes les 2 semaines pendant 3 mois et retirez les plants malades."]
+      },
+      "escalate": {
+        "en": "Report to your extension officer. Brown streak spreads fast between farms.",
+        "sw": "Ripoti kwa afisa ugani. Michirizi kahawia huenea haraka kati ya mashamba.",
+        "fr": "Signalez-le à votre agent de vulgarisation. La striure brune se propage vite entre les fermes."
+      }
+    },
+    "cassava_green_mottle": {
+      "crop": "cassava",
+      "type": "pest",
+      "scientific": "Cassava green mite (Mononychellus tanajoa)",
+      "urgency": "medium",
+      "name": {"en": "Cassava green mite damage", "sw": "Utitiri wa kijani wa muhogo", "fr": "Acarien vert du manioc"},
+      "summary": {
+        "en": "Tiny mites suck the young leaves. Leaves become small, mottled yellow and twisted. Damage is worst in the dry season.",
+        "sw": "Utitiri mdogo hufyonza majani machanga. Majani huwa madogo, yenye madoa ya njano na kujikunja. Uharibifu ni mkubwa zaidi wakati wa kiangazi.",
+        "fr": "De minuscules acariens sucent les jeunes feuilles. Les feuilles deviennent petites, marbrées de jaune et déformées. Les dégâts sont pires en saison sèche."
+      },
+      "actions": {
+        "en": ["Remove and destroy the worst shoot tips.", "Do not spray broad insecticides. They kill the predator mites that control this pest.", "Ask your extension officer about predator mites (Typhlodromalus aripo)."],
+        "sw": ["Ondoa na uharibu ncha za machipukizi zilizoathirika zaidi.", "Usinyunyizie viuadudu vya jumla. Vinaua utitiri wawindaji wanaodhibiti mdudu huyu.", "Muulize afisa ugani kuhusu utitiri wawindaji (Typhlodromalus aripo)."],
+        "fr": ["Retirez et détruisez les extrémités de pousses les plus atteintes.", "Ne pulvérisez pas d'insecticides à large spectre. Ils tuent les acariens prédateurs qui contrôlent ce ravageur.", "Demandez à votre agent de vulgarisation des acariens prédateurs (Typhlodromalus aripo)."]
+      },
+      "prevention": {
+        "en": ["Plant early in the rainy season so plants are strong before the dry season.", "Use tolerant varieties.", "Keep the field healthy with good spacing and weeding."],
+        "sw": ["Panda mapema msimu wa mvua ili mimea iwe imara kabla ya kiangazi.", "Tumia aina zinazostahimili.", "Weka shamba katika hali nzuri kwa nafasi sahihi na palizi."],
+        "fr": ["Plantez tôt en saison des pluies pour que les plants soient forts avant la saison sèche.", "Utilisez des variétés tolérantes.", "Gardez le champ sain avec un bon espacement et un bon désherbage."]
+      },
+      "escalate": {
+        "en": "Call your extension officer if most shoot tips are damaged.",
+        "sw": "Mpigie afisa ugani ikiwa ncha nyingi za machipukizi zimeharibika.",
+        "fr": "Appelez votre agent de vulgarisation si la plupart des extrémités sont atteintes."
+      }
+    },
+    "cassava_mosaic": {
+      "crop": "cassava",
+      "type": "virus",
+      "scientific": "Cassava mosaic begomoviruses",
+      "urgency": "high",
+      "name": {"en": "Cassava mosaic disease", "sw": "Ugonjwa wa batobato wa muhogo", "fr": "Mosaïque du manioc"},
+      "summary": {
+        "en": "A virus disease. Leaves show a yellow and green mosaic pattern, become twisted and small, and plants stay short. Whiteflies and infected cuttings spread it.",
+        "sw": "Ugonjwa wa virusi. Majani huonyesha mchanganyiko wa njano na kijani (batobato), hujikunja na kuwa madogo, na mimea hubaki mifupi. Inzi weupe na vipandikizi vyenye ugonjwa huueneza.",
+        "fr": "Maladie virale. Les feuilles montrent une mosaïque jaune et verte, se déforment et rapetissent, et les plants restent petits. Les aleurodes et les boutures infectées la propagent."
+      },
+      "actions": {
+        "en": ["There is no cure. Uproot and burn infected plants, best in the first 3 months.", "Do not take cuttings from sick plants."],
+        "sw": ["Hakuna tiba. Ng'oa na uchome mimea yenye ugonjwa, ni bora katika miezi 3 ya kwanza.", "Usichukue vipandikizi kutoka mimea yenye ugonjwa."],
+        "fr": ["Il n'y a pas de traitement. Arrachez et brûlez les plants infectés, de préférence dans les 3 premiers mois.", "Ne prenez pas de boutures sur des plants malades."]
+      },
+      "prevention": {
+        "en": ["Plant resistant varieties and clean cuttings.", "Do not plant next to old infected fields.", "Check the field every 2 weeks and remove sick plants early."],
+        "sw": ["Panda aina zinazostahimili na vipandikizi safi.", "Usipande karibu na mashamba ya zamani yenye ugonjwa.", "Kagua shamba kila wiki 2 na uondoe mimea yenye ugonjwa mapema."],
+        "fr": ["Plantez des variétés résistantes et des boutures saines.", "Ne plantez pas à côté de vieux champs infectés.", "Inspectez le champ toutes les 2 semaines et retirez tôt les plants malades."]
+      },
+      "escalate": {
+        "en": "Call your extension officer if more than 1 plant in 10 shows mosaic.",
+        "sw": "Mpigie afisa ugani ikiwa zaidi ya mmea 1 kati ya 10 una batobato.",
+        "fr": "Appelez votre agent de vulgarisation si plus d'un plant sur 10 montre la mosaïque."
+      }
+    },
+    "cassava_healthy": {
+      "crop": "cassava",
+      "type": "healthy",
+      "urgency": "none",
+      "name": {"en": "Healthy cassava leaf", "sw": "Jani la muhogo lenye afya", "fr": "Feuille de manioc saine"},
+      "summary": {
+        "en": "No disease signs found on this leaf.",
+        "sw": "Hakuna dalili za ugonjwa kwenye jani hili.",
+        "fr": "Aucun signe de maladie sur cette feuille."
+      },
+      "actions": {
+        "en": ["Check young plants every 2 weeks. Mosaic and brown streak are easiest to stop early."],
+        "sw": ["Kagua mimea michanga kila wiki 2. Batobato na michirizi kahawia ni rahisi kuzuia mapema."],
+        "fr": ["Inspectez les jeunes plants toutes les 2 semaines. La mosaïque et la striure brune s'arrêtent plus facilement tôt."]
+      },
+      "prevention": {
+        "en": ["Keep using clean cuttings from healthy plants."],
+        "sw": ["Endelea kutumia vipandikizi safi kutoka mimea yenye afya."],
+        "fr": ["Continuez à utiliser des boutures saines de plants sains."]
+      }
+    },
+    "maize_lethal_necrosis": {
+      "crop": "maize",
+      "type": "virus",
+      "scientific": "Maize chlorotic mottle virus + a potyvirus (e.g. sugarcane mosaic virus)",
+      "urgency": "critical",
+      "name": {"en": "Maize lethal necrosis (MLN)", "sw": "Ugonjwa hatari wa mahindi (MLN)", "fr": "Nécrose létale du maïs (MLN)"},
+      "summary": {
+        "en": "Two viruses together. Leaves show yellow mottling, then dry from the edges. The centre of the plant can die. Cobs stay small or empty. Insects (thrips, aphids) and seed spread it.",
+        "sw": "Virusi viwili kwa pamoja. Majani huonyesha madoa ya njano, kisha hukauka kuanzia pembeni. Kitovu cha mmea kinaweza kufa. Mahindi hubaki madogo au matupu. Wadudu (thripu, vidukari) na mbegu huueneza.",
+        "fr": "Deux virus ensemble. Les feuilles montrent des marbrures jaunes, puis sèchent depuis les bords. Le cœur de la plante peut mourir. Les épis restent petits ou vides. Les insectes (thrips, pucerons) et les semences la propagent."
+      },
+      "actions": {
+        "en": ["There is no cure. Uproot infected plants and burn or bury them away from the field.", "Do not feed infected plants to animals in another field.", "Tell your neighbours: MLN spreads across farms."],
+        "sw": ["Hakuna tiba. Ng'oa mimea yenye ugonjwa na uichome au uifukie mbali na shamba.", "Usiwalishe mifugo mimea yenye ugonjwa katika shamba jingine.", "Waambie majirani: MLN huenea kati ya mashamba."],
+        "fr": ["Il n'y a pas de traitement. Arrachez les plants infectés et brûlez-les ou enfouissez-les loin du champ.", "Ne donnez pas les plants infectés aux animaux dans un autre champ.", "Prévenez vos voisins : la MLN se propage entre les fermes."]
+      },
+      "prevention": {
+        "en": ["Plant certified seed of MLN-tolerant varieties.", "Rotate with beans, cassava or potatoes for at least one season.", "Respect a maize-free period between seasons with your neighbours.", "Keep the field free of grass weeds."],
+        "sw": ["Panda mbegu zilizothibitishwa za aina zinazostahimili MLN.", "Badilisha na maharage, muhogo au viazi kwa angalau msimu mmoja.", "Heshimu kipindi bila mahindi kati ya misimu pamoja na majirani.", "Weka shamba bila magugu ya nyasi."],
+        "fr": ["Semez des semences certifiées de variétés tolérantes à la MLN.", "Faites une rotation avec haricot, manioc ou pomme de terre pendant au moins une saison.", "Respectez une période sans maïs entre les saisons avec vos voisins.", "Gardez le champ sans graminées adventices."]
+      },
+      "escalate": {
+        "en": "Report MLN to your extension officer now.",
+        "sw": "Ripoti MLN kwa afisa ugani sasa.",
+        "fr": "Signalez la MLN à votre agent de vulgarisation maintenant."
+      }
+    },
+    "maize_streak_virus": {
+      "crop": "maize",
+      "type": "virus",
+      "scientific": "Maize streak virus (Mastrevirus)",
+      "urgency": "high",
+      "name": {"en": "Maize streak virus", "sw": "Ugonjwa wa michirizi ya mahindi", "fr": "Striure du maïs"},
+      "summary": {
+        "en": "A virus disease. Narrow yellow broken streaks run along the leaves. Young infected plants stay short and give little yield. Leafhoppers spread it.",
+        "sw": "Ugonjwa wa virusi. Michirizi myembamba ya njano iliyokatika hupita kwenye majani. Mimea michanga yenye ugonjwa hubaki mifupi na kutoa mavuno kidogo. Panzi wadogo (leafhoppers) huueneza.",
+        "fr": "Maladie virale. De fines stries jaunes discontinues suivent les feuilles. Les jeunes plants infectés restent petits et produisent peu. Les cicadelles la propagent."
+      },
+      "actions": {
+        "en": ["Uproot infected young plants and replant the gap early if the season allows.", "Remove grass weeds around the field. They host the leafhoppers."],
+        "sw": ["Ng'oa mimea michanga yenye ugonjwa na upande tena mapema ikiwa msimu unaruhusu.", "Ondoa magugu ya nyasi kuzunguka shamba. Yanahifadhi panzi wadogo."],
+        "fr": ["Arrachez les jeunes plants infectés et ressemez tôt si la saison le permet.", "Retirez les graminées autour du champ. Elles abritent les cicadelles."]
+      },
+      "prevention": {
+        "en": ["Plant streak-resistant varieties.", "Plant at the start of the rains, at the same time as your neighbours.", "Do not plant new maize next to older maize."],
+        "sw": ["Panda aina zinazostahimili michirizi.", "Panda mwanzoni mwa mvua, wakati mmoja na majirani.", "Usipande mahindi mapya karibu na mahindi ya zamani."],
+        "fr": ["Semez des variétés résistantes à la striure.", "Semez au début des pluies, en même temps que vos voisins.", "Ne semez pas du maïs nouveau à côté de maïs plus âgé."]
+      },
+      "escalate": {
+        "en": "Call your extension officer if many young plants show streaks.",
+        "sw": "Mpigie afisa ugani ikiwa mimea michanga mingi ina michirizi.",
+        "fr": "Appelez votre agent de vulgarisation si beaucoup de jeunes plants ont des stries."
+      }
+    },
+    "maize_healthy": {
+      "crop": "maize",
+      "type": "healthy",
+      "urgency": "none",
+      "name": {"en": "Healthy maize leaf", "sw": "Jani la mahindi lenye afya", "fr": "Feuille de maïs saine"},
+      "summary": {
+        "en": "No disease signs found on this leaf.",
+        "sw": "Hakuna dalili za ugonjwa kwenye jani hili.",
+        "fr": "Aucun signe de maladie sur cette feuille."
+      },
+      "actions": {
+        "en": ["Check the leaf funnel for fall armyworm every week in the first 6 weeks."],
+        "sw": ["Kagua kitovu cha majani kuona viwavijeshi kila wiki katika wiki 6 za kwanza."],
+        "fr": ["Inspectez le cornet chaque semaine pendant 6 semaines pour la chenille légionnaire."]
+      },
+      "prevention": {
+        "en": ["Use certified seed and rotate with legumes."],
+        "sw": ["Tumia mbegu zilizothibitishwa na ubadilishe na jamii ya kunde."],
+        "fr": ["Utilisez des semences certifiées et faites une rotation avec des légumineuses."]
+      }
+    },
+    "banana_black_sigatoka": {
+      "crop": "banana",
+      "type": "fungus",
+      "scientific": "Pseudocercospora fijiensis",
+      "urgency": "medium",
+      "name": {"en": "Black Sigatoka", "sw": "Madoa meusi ya mgomba (Sigatoka)", "fr": "Cercosporiose noire du bananier"},
+      "summary": {
+        "en": "A fungal leaf disease. Dark streaks become black spots with yellow edges. Leaves die early, so bunches stay small and ripen too soon.",
+        "sw": "Ugonjwa wa kuvu wa majani. Michirizi myeusi huwa madoa meusi yenye kingo za njano. Majani hufa mapema, hivyo mikungu hubaki midogo na kuiva mapema mno.",
+        "fr": "Maladie fongique des feuilles. Des stries sombres deviennent des taches noires à bord jaune. Les feuilles meurent tôt, les régimes restent petits et mûrissent trop vite."
+      },
+      "actions": {
+        "en": ["Cut off badly spotted leaves and leaves that hang down. Lay them face-down on the ground or bury them.", "Remove extra suckers so air moves between plants."],
+        "sw": ["Kata majani yenye madoa mengi na yanayoning'inia. Yaweke kifudifudi chini au uyafukie.", "Ondoa machipukizi ya ziada ili hewa ipite kati ya mimea."],
+        "fr": ["Coupez les feuilles très tachées et celles qui pendent. Posez-les face contre terre ou enfouissez-les.", "Retirez les rejets en trop pour aérer entre les plants."]
+      },
+      "prevention": {
+        "en": ["Keep good spacing and drainage.", "Add manure or compost so plants grow strong.", "Ask about tolerant varieties for your area."],
+        "sw": ["Weka nafasi nzuri na mifereji ya maji.", "Ongeza samadi au mboji ili mimea ikue imara.", "Uliza kuhusu aina zinazostahimili kwa eneo lako."],
+        "fr": ["Gardez un bon espacement et un bon drainage.", "Apportez du fumier ou du compost pour des plants vigoureux.", "Renseignez-vous sur les variétés tolérantes pour votre zone."]
+      },
+      "escalate": {
+        "en": "Call your extension officer if fewer than 6 green leaves remain at flowering.",
+        "sw": "Mpigie afisa ugani ikiwa yanabaki majani mabichi chini ya 6 wakati wa kutoa maua.",
+        "fr": "Appelez votre agent de vulgarisation s'il reste moins de 6 feuilles vertes à la floraison."
+      }
+    },
+    "banana_fusarium_wilt": {
+      "crop": "banana",
+      "type": "fungus",
+      "scientific": "Fusarium oxysporum f. sp. cubense",
+      "urgency": "critical",
+      "name": {"en": "Fusarium wilt (Panama disease)", "sw": "Mnyauko Fusari wa mgomba (Panama)", "fr": "Fusariose du bananier (maladie de Panama)"},
+      "summary": {
+        "en": "A soil fungus blocks the water vessels. Old leaves turn yellow from the edges and hang down. The base of the stem can split. Inside the stem you see brown-red lines. The fungus stays in the soil for many years.",
+        "sw": "Kuvu wa udongo huziba mishipa ya maji. Majani ya zamani hugeuka njano kuanzia pembeni na kuning'inia. Chini ya shina kunaweza kupasuka. Ndani ya shina unaona mistari ya kahawia-nyekundu. Kuvu hubaki udongoni kwa miaka mingi.",
+        "fr": "Un champignon du sol bouche les vaisseaux. Les vieilles feuilles jaunissent depuis les bords et pendent. La base du pseudo-tronc peut se fendre. À l'intérieur, on voit des lignes brun-rouge. Le champignon reste dans le sol pendant des années."
+      },
+      "actions": {
+        "en": ["There is no cure. Uproot the whole mat and destroy it on the spot.", "Do not move soil, suckers or tools from this spot to other fields.", "Clean boots and tools before you leave the field."],
+        "sw": ["Hakuna tiba. Ng'oa kichaka chote na ukiharibu papo hapo.", "Usihamishe udongo, machipukizi au zana kutoka sehemu hii kwenda mashamba mengine.", "Safisha viatu na zana kabla ya kuondoka shambani."],
+        "fr": ["Il n'y a pas de traitement. Arrachez toute la souche et détruisez-la sur place.", "Ne déplacez pas de terre, de rejets ou d'outils de cet endroit vers d'autres champs.", "Nettoyez bottes et outils avant de quitter le champ."]
+      },
+      "prevention": {
+        "en": ["Plant clean tissue-culture plantlets or suckers from healthy fields.", "Grow resistant varieties.", "Do not replant banana in the same spot."],
+        "sw": ["Panda miche safi ya maabara (tissue culture) au machipukizi kutoka mashamba yenye afya.", "Panda aina zinazostahimili.", "Usipande mgomba tena sehemu ile ile."],
+        "fr": ["Plantez des vitroplants sains ou des rejets de champs sains.", "Cultivez des variétés résistantes.", "Ne replantez pas de bananier au même endroit."]
+      },
+      "escalate": {
+        "en": "Report to your extension officer now. Some strains (TR4) are under quarantine.",
+        "sw": "Ripoti kwa afisa ugani sasa. Baadhi ya aina (TR4) ziko chini ya karantini.",
+        "fr": "Signalez-le maintenant à votre agent de vulgarisation. Certaines souches (TR4) sont sous quarantaine."
+      }
+    },
+    "banana_healthy": {
+      "crop": "banana",
+      "type": "healthy",
+      "urgency": "none",
+      "name": {"en": "Healthy banana leaf", "sw": "Jani la mgomba lenye afya", "fr": "Feuille de bananier saine"},
+      "summary": {
+        "en": "No disease signs found on this leaf.",
+        "sw": "Hakuna dalili za ugonjwa kwenye jani hili.",
+        "fr": "Aucun signe de maladie sur cette feuille."
+      },
+      "actions": {
+        "en": ["Remove old dry leaves and keep 3 to 4 plants per mat."],
+        "sw": ["Ondoa majani makavu ya zamani na uache mimea 3 hadi 4 kwa kila kichaka."],
+        "fr": ["Retirez les vieilles feuilles sèches et gardez 3 à 4 plants par souche."]
+      },
+      "prevention": {
+        "en": ["Use clean planting material and add mulch."],
+        "sw": ["Tumia miche safi na uweke matandazo."],
+        "fr": ["Utilisez du matériel de plantation sain et paillez."]
+      }
+    }
+  },
+  "sources": [
+    {"name": "IITA (International Institute of Tropical Agriculture): cassava and banana disease guides", "url": "https://www.iita.org"},
+    {"name": "CABI PlantwisePlus Knowledge Bank: pest management decision guides", "url": "https://plantwiseplusknowledgebank.org"},
+    {"name": "CIMMYT: maize lethal necrosis management", "url": "https://www.cimmyt.org"},
+    {"name": "Alliance of Bioversity International and CIAT: bean and banana resources", "url": "https://alliancebioversityciat.org"},
+    {"name": "FAO Plant Production and Protection", "url": "https://www.fao.org/plant-production-protection"}
+  ]
+}
