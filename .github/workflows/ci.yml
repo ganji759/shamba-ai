@@ -134,7 +134,7 @@ jobs:
             cd ml
             uv venv
             uv pip install -e ".[dev]" --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
-            uv run --no-sync python scripts/make_ci_model.py
+            .venv/bin/python scripts/make_ci_model.py
           fi
       - name: Build and test
         working-directory: apps/android
