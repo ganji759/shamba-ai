@@ -41,9 +41,16 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
         runtimeCaching: [
           {
+            // The model list must update when a new model ships: network first, cache offline.
+            urlPattern: ({ url }) => url.pathname.endsWith("/models/manifest.json"),
+            handler: "NetworkFirst",
+            options: { cacheName: "shamba-model-list", networkTimeoutSeconds: 4 },
+          },
+          {
+            // Programs and runtime are immutable: their URL carries the sha256.
             urlPattern: ({ url }) => /\/(models|executorch)\//.test(url.pathname),
             handler: "CacheFirst",
-            options: { cacheName: "shamba-offline-pack", expiration: { maxEntries: 20 } },
+            options: { cacheName: "shamba-offline-pack", expiration: { maxEntries: 12 } },
           },
         ],
       },

@@ -35,13 +35,14 @@ export class Engine {
     });
     const program = (target: Backend) => {
       const f = manifest.files.find((x) => x.target === target);
-      return f ? { url: abs(`models/${f.file}`), sha256: f.sha256 } : undefined;
+      // The sha256 in the URL makes each model version a new, immutable cache entry.
+      return f ? { url: abs(`models/${f.file}?v=${f.sha256.slice(0, 16)}`), sha256: f.sha256 } : undefined;
     };
     const init: EngineRequest = {
       type: "init",
       runtime: {
-        js: abs("executorch/executorch_wasm_lib.js"),
-        wasm: abs("executorch/executorch_wasm_lib.wasm"),
+        js: abs(`executorch/executorch_wasm_lib.js?v=${RUNTIME_WASM_SHA256.slice(0, 16)}`),
+        wasm: abs(`executorch/executorch_wasm_lib.wasm?v=${RUNTIME_WASM_SHA256.slice(0, 16)}`),
         wasmSha256: RUNTIME_WASM_SHA256,
       },
       programs: { webgpu: program("webgpu"), portable: program("portable") },
