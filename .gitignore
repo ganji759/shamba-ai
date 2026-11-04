@@ -6,3 +6,30 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# ML: data and runs stay local; release models are published to GitHub Releases / Hugging Face
+ml/data/
+ml/runs/
+ml/artifacts/
+ml/runs_*.log
+
+# Web
+apps/web/dev-dist/
+
+# Android
+apps/android/.gradle/
+apps/android/build/
+apps/android/app/build/
+apps/android/local.properties
+apps/android/.kotlin/
+
+# Local tools
+.playwright-mcp/
+*.db

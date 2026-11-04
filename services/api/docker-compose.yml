@@ -1,0 +1,30 @@
+# Run from services/api. The build context is the repository root.
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: shamba
+      POSTGRES_PASSWORD: shamba
+      POSTGRES_DB: shamba
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shamba"]
+      interval: 5s
+      retries: 10
+  api:
+    build:
+      context: ../..
+      dockerfile: services/api/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgresql://shamba:shamba@db:5432/shamba
+      API_KEYS: ${API_KEYS:-dev-key}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      MODEL_MANIFEST_URL: ${MODEL_MANIFEST_URL:-}
+volumes:
+  pgdata:

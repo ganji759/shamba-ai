@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English. Keep sentence case. Short words, short sentences. -->
+<resources>
+    <string name="app_name" translatable="false">Shamba AI</string>
+    <string name="backend_name" translatable="false">ExecuTorch · XNNPACK</string>
+
+    <!-- First run -->
+    <string name="language_title">Choose your language</string>
+    <string name="language_subtitle">You can change it later in About.</string>
+
+    <!-- Tabs -->
+    <string name="tab_scan">Scan</string>
+    <string name="tab_history">History</string>
+    <string name="tab_library">Library</string>
+    <string name="tab_about">About</string>
+
+    <!-- Scan -->
+    <string name="scan_title">Check your crop</string>
+    <string name="scan_intro">Take a photo of a sick leaf. Get advice in seconds.</string>
+    <string name="check_leaf">Check a leaf</string>
+    <string name="pick_gallery">Pick from gallery</string>
+    <string name="scan_tip">One leaf, fill the frame, daylight.</string>
+    <string name="scan_crops">Crops: %1$s</string>
+    <string name="scan_offline">Works without internet. Photos stay on your phone.</string>
+    <string name="model_loading">Getting ready…</string>
+    <string name="model_failed">The crop model did not load. Reinstall the app.</string>
+
+    <!-- Camera -->
+    <string name="camera_take_photo">Take photo</string>
+    <string name="camera_close">Close</string>
+    <string name="camera_gallery">Gallery</string>
+    <string name="camera_permission_title">Camera needed</string>
+    <string name="camera_permission_body">Allow the camera to take a photo of a leaf. Or pick a photo from your gallery.</string>
+    <string name="camera_allow">Allow camera</string>
+    <string name="camera_failed">The camera did not start.</string>
+    <string name="capture_failed">The photo did not save. Try again.</string>
+    <string name="camera_guide">Put the leaf inside the square</string>
+
+    <!-- Analysis -->
+    <string name="analyzing">Checking the leaf…</string>
+    <string name="analysis_failed">Could not check this photo. Try another photo.</string>
+
+    <!-- Result -->
+    <string name="result_title">Result</string>
+    <string name="back">Back</string>
+    <string name="photo_description">Photo of the leaf</string>
+    <string name="certainty_confident">Very likely</string>
+    <string name="certainty_likely">Likely</string>
+    <string name="certainty_uncertain">Not sure</string>
+    <string name="certainty_with_percent">%1$s · %2$s</string>
+    <string name="urgency_critical">Act today</string>
+    <string name="urgency_high">Act this week</string>
+    <string name="urgency_medium">Watch closely</string>
+    <string name="urgency_none">Healthy</string>
+    <string name="section_actions">What to do now</string>
+    <string name="section_prevention">Prevent next season</string>
+    <string name="section_escalate">When to call your extension officer</string>
+    <string name="section_safety">Safety</string>
+    <string name="section_other">Other possibilities</string>
+    <string name="section_retake">Take a new photo</string>
+    <string name="not_sure_title">Not sure</string>
+    <string name="might_be">It might be:</string>
+    <string name="retake_button">Take a new photo</string>
+    <string name="read_aloud">Read aloud</string>
+    <string name="stop_reading">Stop</string>
+    <string name="share">Share</string>
+    <string name="share_chooser">Send to your extension officer</string>
+    <string name="crop_label">Crop: %1$s</string>
+    <string name="unknown_condition">Unknown result</string>
+    <string name="type_fungus">Fungus</string>
+    <string name="type_bacteria">Bacteria</string>
+    <string name="type_virus">Virus</string>
+    <string name="type_pest">Pest</string>
+    <string name="type_healthy">Healthy plant</string>
+    <string name="tts_missing_voice">No %1$s voice on this phone. Add one in phone settings, under text-to-speech.</string>
+    <string name="tts_read_english">Read in English</string>
+    <string name="tts_unavailable">Read aloud does not work on this phone.</string>
+
+    <!-- Share and read-aloud text -->
+    <string name="share_header">Shamba AI crop check</string>
+    <string name="share_result">Result: %1$s (%2$s, %3$s)</string>
+    <string name="share_urgency">Urgency: %1$s</string>
+    <string name="share_date">Date: %1$s</string>
+    <string name="share_uncertain">The app is not sure. Please look at this plant.</string>
+    <string name="share_others">Other possibilities: %1$s</string>
+    <string name="share_model">Checked offline on the phone. Model %1$s.</string>
+    <string name="speech_result">%1$s. %2$s.</string>
+
+    <!-- History -->
+    <string name="history_title">Past checks</string>
+    <string name="history_empty">No checks yet. Your past checks show here.</string>
+    <string name="delete">Delete</string>
+    <string name="delete_title">Delete this check?</string>
+    <string name="delete_body">The photo and the result will be removed from this phone.</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Library -->
+    <string name="library_title">Crop diseases</string>
+    <string name="library_intro">Learn the signs and what to do. Tap a disease to read more.</string>
+
+    <!-- About -->
+    <string name="about_title">About and settings</string>
+    <string name="about_language">Language</string>
+    <string name="about_model">Crop model</string>
+    <string name="about_version">Version</string>
+    <string name="about_file">File</string>
+    <string name="about_size">Size</string>
+    <string name="about_sha">SHA-256</string>
+    <string name="about_sha_ok">Matches the manifest</string>
+    <string name="about_sha_bad">Does not match the manifest</string>
+    <string name="about_backend">Backend</string>
+    <string name="about_runtime">Runtime</string>
+    <string name="about_runtime_value">ExecuTorch %1$s, on the phone</string>
+    <string name="about_classes">Classes</string>
+    <string name="about_latency">Last check time</string>
+    <string name="about_latency_value">%1$d ms</string>
+    <string name="about_latency_none">No check yet</string>
+    <string name="about_privacy_title">Privacy</string>
+    <string name="about_privacy">Photos never leave your phone. Shamba AI works without internet. There is no account and no tracking.</string>
+    <string name="about_advice">Advice</string>
+    <string name="about_advice_value">Version %1$s</string>
+    <string name="about_advice_draft">Draft. An agronomist must review this advice before field use.</string>
+    <string name="about_app_version">App version</string>
+    <string name="about_loading">Loading…</string>
+</resources>

@@ -1,0 +1,27 @@
+name: Bug report
+description: Something does not work.
+labels: [bug]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where did it happen?
+      options: [Web app, Android app, Desktop app, Cloud API, Model training, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Say what you did, what you expected, and what you saw.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: App and model version
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Do not include personal data.

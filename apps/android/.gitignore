@@ -1,0 +1,21 @@
+# Machine-specific
+local.properties
+
+# Gradle and Kotlin build state
+.gradle/
+.kotlin/
+build/
+app/build/
+
+# IDE
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Outputs and model binaries (the model is copied from ../../ml at build time)
+*.apk
+*.aab
+*.pte
+app/src/main/assets/

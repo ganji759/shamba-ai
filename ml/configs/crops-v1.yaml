@@ -1,0 +1,83 @@
+# Shamba AI crop-health classifier v1.
+# Field photos from East Africa only. Each source maps its own labels to our class ids.
+# Class ids are stable: apps and the knowledge base use them as keys.
+
+name: shamba-crop-health-v1
+image_size: 224
+resize_short_side: 256
+seed: 42
+split: {val: 0.1, test: 0.1}
+
+classes:
+  - bean_angular_leaf_spot
+  - bean_rust
+  - bean_healthy
+  - cassava_bacterial_blight
+  - cassava_brown_streak
+  - cassava_green_mottle
+  - cassava_mosaic
+  - cassava_healthy
+  - maize_lethal_necrosis
+  - maize_streak_virus
+  - maize_healthy
+  - banana_black_sigatoka
+  - banana_fusarium_wilt
+  - banana_healthy
+
+sources:
+  - id: beans
+    kind: hf_parquet
+    repo: AI-Lab-Makerere/beans
+    revision: refs/convert/parquet
+    pattern: "default/*/*.parquet"
+    label_column: labels
+    keep_splits: true          # use the dataset's own train/validation/test split
+    label_map:
+      angular_leaf_spot: bean_angular_leaf_spot
+      bean_rust: bean_rust
+      healthy: bean_healthy
+    license: MIT
+    region: Uganda
+
+  - id: cassava
+    kind: hf_csv_images
+    repo: Engineer101/cassava-leaf-disease-classification
+    csv: train.csv
+    image_dir: train_images
+    id_column: image_id
+    label_column: label
+    per_class_cap: 1000
+    label_map:
+      "0": cassava_bacterial_blight
+      "1": cassava_brown_streak
+      "2": cassava_green_mottle
+      "3": cassava_mosaic
+      "4": cassava_healthy
+    license: "MIT (mirror). Origin: Makerere AI Lab / Kaggle 2020. Check origin terms before commercial use."
+    region: Uganda
+
+  - id: maize
+    kind: hf_parquet
+    repo: Project-AgML/maize_disease_classification
+    pattern: "data/*.parquet"
+    label_column: label
+    per_class_cap: 1000
+    label_map:
+      Healthy: maize_healthy
+      MLN: maize_lethal_necrosis
+      MSV: maize_streak_virus
+    license: CC-BY-4.0
+    region: Tanzania
+
+  - id: banana
+    kind: hf_parquet
+    repo: Project-AgML/banana_disease_classification_tanzania
+    pattern: "data/*.parquet"
+    label_column: label
+    per_class_cap: 1000
+    label_map:
+      black_sigatoka: banana_black_sigatoka
+      fusarium_wilt: banana_fusarium_wilt
+      healthy: banana_healthy
+    license: CC0-1.0
+    region: Tanzania

@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /ml
+    schedule:
+      interval: monthly
+  - package-ecosystem: uv
+    directory: /services/api
+    schedule:
+      interval: monthly
+  - package-ecosystem: npm
+    directory: /apps/web
+    schedule:
+      interval: monthly
+  - package-ecosystem: gradle
+    directory: /apps/android
+    schedule:
+      interval: monthly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: terraform
+    directory: /infra/terraform/gcp
+    schedule:
+      interval: monthly

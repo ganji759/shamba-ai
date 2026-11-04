@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kiswahili. Needs a native-speaker review before a field pilot. -->
+<resources>
+    <string name="language_title">Chagua lugha yako</string>
+    <string name="language_subtitle">Unaweza kuibadilisha baadaye kwenye Kuhusu.</string>
+
+    <string name="tab_scan">Kagua</string>
+    <string name="tab_history">Historia</string>
+    <string name="tab_library">Maktaba</string>
+    <string name="tab_about">Kuhusu</string>
+
+    <string name="scan_title">Kagua zao lako</string>
+    <string name="scan_intro">Piga picha ya jani lenye ugonjwa. Pata ushauri kwa sekunde chache.</string>
+    <string name="check_leaf">Kagua jani</string>
+    <string name="pick_gallery">Chagua picha iliyopo</string>
+    <string name="scan_tip">Jani moja, lijaze picha, mwanga wa mchana.</string>
+    <string name="scan_crops">Mazao: %1$s</string>
+    <string name="scan_offline">Inafanya kazi bila intaneti. Picha zinabaki kwenye simu yako.</string>
+    <string name="model_loading">Inajiandaa…</string>
+    <string name="model_failed">Modeli ya mazao haikupakia. Sakinisha programu upya.</string>
+
+    <string name="camera_take_photo">Piga picha</string>
+    <string name="camera_close">Funga</string>
+    <string name="camera_gallery">Picha</string>
+    <string name="camera_permission_title">Kamera inahitajika</string>
+    <string name="camera_permission_body">Ruhusu kamera ili upige picha ya jani. Au chagua picha iliyopo.</string>
+    <string name="camera_allow">Ruhusu kamera</string>
+    <string name="camera_failed">Kamera haikuwaka.</string>
+    <string name="capture_failed">Picha haikuhifadhiwa. Jaribu tena.</string>
+    <string name="camera_guide">Weka jani ndani ya mraba</string>
+
+    <string name="analyzing">Inakagua jani…</string>
+    <string name="analysis_failed">Imeshindwa kukagua picha hii. Jaribu picha nyingine.</string>
+
+    <string name="result_title">Matokeo</string>
+    <string name="back">Rudi</string>
+    <string name="photo_description">Picha ya jani</string>
+    <string name="certainty_confident">Uwezekano mkubwa sana</string>
+    <string name="certainty_likely">Inawezekana</string>
+    <string name="certainty_uncertain">Sina uhakika</string>
+    <string name="certainty_with_percent">%1$s · %2$s</string>
+    <string name="urgency_critical">Chukua hatua leo</string>
+    <string name="urgency_high">Chukua hatua wiki hii</string>
+    <string name="urgency_medium">Fuatilia kwa makini</string>
+    <string name="urgency_none">Mzima</string>
+    <string name="section_actions">Fanya nini sasa</string>
+    <string name="section_prevention">Zuia msimu ujao</string>
+    <string name="section_escalate">Wakati wa kumpigia afisa ugani</string>
+    <string name="section_safety">Usalama</string>
+    <string name="section_other">Uwezekano mwingine</string>
+    <string name="section_retake">Piga picha mpya</string>
+    <string name="not_sure_title">Sina uhakika</string>
+    <string name="might_be">Huenda ni:</string>
+    <string name="retake_button">Piga picha mpya</string>
+    <string name="read_aloud">Soma kwa sauti</string>
+    <string name="stop_reading">Simamisha</string>
+    <string name="share">Shiriki</string>
+    <string name="share_chooser">Tuma kwa afisa ugani</string>
+    <string name="crop_label">Zao: %1$s</string>
+    <string name="unknown_condition">Matokeo yasiyojulikana</string>
+    <string name="type_fungus">Kuvu</string>
+    <string name="type_bacteria">Bakteria</string>
+    <string name="type_virus">Virusi</string>
+    <string name="type_pest">Mdudu</string>
+    <string name="type_healthy">Mmea mzima</string>
+    <string name="tts_missing_voice">Hakuna sauti ya %1$s kwenye simu hii. Ongeza sauti kwenye mipangilio ya simu, chini ya maandishi-kwa-sauti.</string>
+    <string name="tts_read_english">Soma kwa Kiingereza</string>
+    <string name="tts_unavailable">Kusoma kwa sauti hakufanyi kazi kwenye simu hii.</string>
+
+    <string name="share_header">Ukaguzi wa zao wa Shamba AI</string>
+    <string name="share_result">Matokeo: %1$s (%2$s, %3$s)</string>
+    <string name="share_urgency">Uharaka: %1$s</string>
+    <string name="share_date">Tarehe: %1$s</string>
+    <string name="share_uncertain">Programu haina uhakika. Tafadhali angalia mmea huu.</string>
+    <string name="share_others">Uwezekano mwingine: %1$s</string>
+    <string name="share_model">Imekaguliwa bila intaneti kwenye simu. Modeli %1$s.</string>
+    <string name="speech_result">%1$s. %2$s.</string>
+
+    <string name="history_title">Ukaguzi uliopita</string>
+    <string name="history_empty">Bado hakuna ukaguzi. Ukaguzi wako uliopita utaonekana hapa.</string>
+    <string name="delete">Futa</string>
+    <string name="delete_title">Futa ukaguzi huu?</string>
+    <string name="delete_body">Picha na matokeo vitaondolewa kwenye simu hii.</string>
+    <string name="cancel">Ghairi</string>
+
+    <string name="library_title">Magonjwa ya mazao</string>
+    <string name="library_intro">Jifunze dalili na nini cha kufanya. Gusa ugonjwa kusoma zaidi.</string>
+
+    <string name="about_title">Kuhusu na mipangilio</string>
+    <string name="about_language">Lugha</string>
+    <string name="about_model">Modeli ya mazao</string>
+    <string name="about_version">Toleo</string>
+    <string name="about_file">Faili</string>
+    <string name="about_size">Ukubwa</string>
+    <string name="about_sha">SHA-256</string>
+    <string name="about_sha_ok">Inalingana na manifest</string>
+    <string name="about_sha_bad">Hailingani na manifest</string>
+    <string name="about_backend">Mfumo wa kuendesha</string>
+    <string name="about_runtime">Injini</string>
+    <string name="about_runtime_value">ExecuTorch %1$s, kwenye simu</string>
+    <string name="about_classes">Madaraja</string>
+    <string name="about_latency">Muda wa ukaguzi wa mwisho</string>
+    <string name="about_latency_value">%1$d ms</string>
+    <string name="about_latency_none">Bado hakuna ukaguzi</string>
+    <string name="about_privacy_title">Faragha</string>
+    <string name="about_privacy">Picha haziondoki kwenye simu yako. Shamba AI inafanya kazi bila intaneti. Hakuna akaunti na hakuna ufuatiliaji.</string>
+    <string name="about_advice">Ushauri</string>
+    <string name="about_advice_value">Toleo %1$s</string>
+    <string name="about_advice_draft">Rasimu. Mtaalamu wa kilimo lazima apitie ushauri huu kabla ya kutumia shambani.</string>
+    <string name="about_app_version">Toleo la programu</string>
+    <string name="about_loading">Inapakia…</string>
+</resources>

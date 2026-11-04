@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Français. Needs a native-speaker review before a field pilot. -->
+<resources>
+    <string name="language_title">Choisissez votre langue</string>
+    <string name="language_subtitle">Vous pourrez la changer plus tard dans À propos.</string>
+
+    <string name="tab_scan">Analyser</string>
+    <string name="tab_history">Historique</string>
+    <string name="tab_library">Maladies</string>
+    <string name="tab_about">À propos</string>
+
+    <string name="scan_title">Vérifiez votre culture</string>
+    <string name="scan_intro">Photographiez une feuille malade. Recevez des conseils en quelques secondes.</string>
+    <string name="check_leaf">Vérifier une feuille</string>
+    <string name="pick_gallery">Choisir dans la galerie</string>
+    <string name="scan_tip">Une feuille, qui remplit l\'image, en plein jour.</string>
+    <string name="scan_crops">Cultures : %1$s</string>
+    <string name="scan_offline">Fonctionne sans internet. Les photos restent sur votre téléphone.</string>
+    <string name="model_loading">Préparation…</string>
+    <string name="model_failed">Le modèle n\'a pas pu être chargé. Réinstallez l\'application.</string>
+
+    <string name="camera_take_photo">Prendre la photo</string>
+    <string name="camera_close">Fermer</string>
+    <string name="camera_gallery">Galerie</string>
+    <string name="camera_permission_title">Caméra nécessaire</string>
+    <string name="camera_permission_body">Autorisez la caméra pour photographier une feuille. Ou choisissez une photo dans la galerie.</string>
+    <string name="camera_allow">Autoriser la caméra</string>
+    <string name="camera_failed">La caméra n\'a pas démarré.</string>
+    <string name="capture_failed">La photo n\'a pas été enregistrée. Réessayez.</string>
+    <string name="camera_guide">Placez la feuille dans le carré</string>
+
+    <string name="analyzing">Analyse de la feuille…</string>
+    <string name="analysis_failed">Impossible d\'analyser cette photo. Essayez une autre photo.</string>
+
+    <string name="result_title">Résultat</string>
+    <string name="back">Retour</string>
+    <string name="photo_description">Photo de la feuille</string>
+    <string name="certainty_confident">Très probable</string>
+    <string name="certainty_likely">Probable</string>
+    <string name="certainty_uncertain">Pas sûr</string>
+    <string name="certainty_with_percent">%1$s · %2$s</string>
+    <string name="urgency_critical">Agissez aujourd\'hui</string>
+    <string name="urgency_high">Agissez cette semaine</string>
+    <string name="urgency_medium">Surveillez de près</string>
+    <string name="urgency_none">En bonne santé</string>
+    <string name="section_actions">Que faire maintenant</string>
+    <string name="section_prevention">Prévenir la saison prochaine</string>
+    <string name="section_escalate">Quand appeler votre agent de vulgarisation</string>
+    <string name="section_safety">Sécurité</string>
+    <string name="section_other">Autres possibilités</string>
+    <string name="section_retake">Prenez une nouvelle photo</string>
+    <string name="not_sure_title">Pas sûr</string>
+    <string name="might_be">C\'est peut-être :</string>
+    <string name="retake_button">Reprendre une photo</string>
+    <string name="read_aloud">Lire à voix haute</string>
+    <string name="stop_reading">Arrêter</string>
+    <string name="share">Partager</string>
+    <string name="share_chooser">Envoyer à votre agent de vulgarisation</string>
+    <string name="crop_label">Culture : %1$s</string>
+    <string name="unknown_condition">Résultat inconnu</string>
+    <string name="type_fungus">Champignon</string>
+    <string name="type_bacteria">Bactérie</string>
+    <string name="type_virus">Virus</string>
+    <string name="type_pest">Ravageur</string>
+    <string name="type_healthy">Plante saine</string>
+    <string name="tts_missing_voice">Pas de voix %1$s sur ce téléphone. Ajoutez-en une dans les réglages du téléphone, rubrique synthèse vocale.</string>
+    <string name="tts_read_english">Lire en anglais</string>
+    <string name="tts_unavailable">La lecture à voix haute ne fonctionne pas sur ce téléphone.</string>
+
+    <string name="share_header">Diagnostic Shamba AI</string>
+    <string name="share_result">Résultat : %1$s (%2$s, %3$s)</string>
+    <string name="share_urgency">Urgence : %1$s</string>
+    <string name="share_date">Date : %1$s</string>
+    <string name="share_uncertain">L\'application n\'est pas sûre. Merci d\'examiner cette plante.</string>
+    <string name="share_others">Autres possibilités : %1$s</string>
+    <string name="share_model">Analysé hors ligne sur le téléphone. Modèle %1$s.</string>
+    <string name="speech_result">%1$s. %2$s.</string>
+
+    <string name="history_title">Analyses passées</string>
+    <string name="history_empty">Aucune analyse pour l\'instant. Vos analyses passées apparaissent ici.</string>
+    <string name="delete">Supprimer</string>
+    <string name="delete_title">Supprimer cette analyse ?</string>
+    <string name="delete_body">La photo et le résultat seront effacés de ce téléphone.</string>
+    <string name="cancel">Annuler</string>
+
+    <string name="library_title">Maladies des cultures</string>
+    <string name="library_intro">Apprenez les signes et quoi faire. Touchez une maladie pour en savoir plus.</string>
+
+    <string name="about_title">À propos et réglages</string>
+    <string name="about_language">Langue</string>
+    <string name="about_model">Modèle de diagnostic</string>
+    <string name="about_version">Version</string>
+    <string name="about_file">Fichier</string>
+    <string name="about_size">Taille</string>
+    <string name="about_sha">SHA-256</string>
+    <string name="about_sha_ok">Conforme au manifeste</string>
+    <string name="about_sha_bad">Non conforme au manifeste</string>
+    <string name="about_backend">Moteur</string>
+    <string name="about_runtime">Exécution</string>
+    <string name="about_runtime_value">ExecuTorch %1$s, sur le téléphone</string>
+    <string name="about_classes">Classes</string>
+    <string name="about_latency">Durée de la dernière analyse</string>
+    <string name="about_latency_value">%1$d ms</string>
+    <string name="about_latency_none">Aucune analyse</string>
+    <string name="about_privacy_title">Confidentialité</string>
+    <string name="about_privacy">Les photos ne quittent jamais votre téléphone. Shamba AI fonctionne sans internet. Pas de compte, pas de suivi.</string>
+    <string name="about_advice">Conseils</string>
+    <string name="about_advice_value">Version %1$s</string>
+    <string name="about_advice_draft">Brouillon. Un agronome doit relire ces conseils avant usage au champ.</string>
+    <string name="about_app_version">Version de l\'application</string>
+    <string name="about_loading">Chargement…</string>
+</resources>

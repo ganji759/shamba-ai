@@ -1,0 +1,141 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      ml: ${{ steps.f.outputs.ml }}
+      api: ${{ steps.f.outputs.api }}
+      web: ${{ steps.f.outputs.web }}
+      android: ${{ steps.f.outputs.android }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: f
+        with:
+          filters: |
+            ml:
+              - 'ml/**'
+              - 'knowledge/**'
+              - '.github/workflows/ci.yml'
+            api:
+              - 'services/api/**'
+              - 'knowledge/**'
+              - '.github/workflows/ci.yml'
+            web:
+              - 'apps/web/**'
+              - 'knowledge/**'
+              - '.github/workflows/ci.yml'
+            android:
+              - 'apps/android/**'
+              - 'ml/**'
+              - 'knowledge/**'
+              - '.github/workflows/ci.yml'
+
+  ml:
+    needs: changes
+    if: needs.changes.outputs.ml == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ml
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: ml/pyproject.toml
+      - name: Install with CPU torch
+        run: |
+          uv venv
+          uv pip install -e ".[dev]" --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
+      - run: uv run --no-sync ruff check .
+      - run: uv run --no-sync pytest -q
+
+  api:
+    needs: changes
+    if: needs.changes.outputs.api == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: services/api/uv.lock
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run pytest -q
+
+  web:
+    needs: changes
+    if: needs.changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test --if-present
+      - run: npm run build
+
+  android:
+    needs: changes
+    if: needs.changes.outputs.android == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Get the release model
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p ml/artifacts
+          gh release download model-v1.0.0 --repo "$GITHUB_REPOSITORY" --dir ml/artifacts \
+            --pattern manifest.json --pattern '*xnnpack_int8.pte' || rm -rf ml/artifacts
+      - name: Make a small CI model if the release is missing
+        run: |
+          if [ ! -f ml/artifacts/manifest.json ]; then
+            cd ml
+            uv venv
+            uv pip install -e ".[dev]" --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
+            .venv/bin/python scripts/make_ci_model.py
+          fi
+      - name: Build and test
+        working-directory: apps/android
+        run: ./gradlew assembleDebug testDebugUnitTest
