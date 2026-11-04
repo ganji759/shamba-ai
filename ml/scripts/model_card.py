@@ -47,6 +47,7 @@ def main() -> None:
     ap.add_argument("--history", default="runs/v1/history.json")
     ap.add_argument("--artifacts", default="artifacts")
     ap.add_argument("--bench", default="artifacts/bench.json")
+    ap.add_argument("--data", default="data/processed")
     ap.add_argument("--out", default="MODEL_CARD.md")
     a = ap.parse_args()
 
@@ -56,6 +57,18 @@ def main() -> None:
     bench = json.loads(Path(a.bench).read_text()) if Path(a.bench).exists() else None
     hist = json.loads(Path(a.history).read_text()) if Path(a.history).exists() else []
     s = m["summary"]
+    split_text = "field photos from the sources below"
+    data_manifest = Path(a.data) / "manifest.csv"
+    if data_manifest.exists():
+        import csv
+        from collections import Counter
+
+        with data_manifest.open() as fh:
+            n = Counter(r["split"] for r in csv.DictReader(fh))
+        split_text = (
+            f"{sum(n.values()):,} field photos ({n['train']:,} train, "
+            f"{n['val']:,} validation, {n['test']:,} test)"
+        )
 
     out = [FRONT.format(backbone=man["backbone"])]
     out.append("# Shamba crop-health v1 (ExecuTorch)\n")
@@ -101,14 +114,18 @@ def main() -> None:
         chk = f.get("check", {})
         acc = pct(chk["accuracy"]) if "accuracy" in chk else "GPU only, checked in browser"
         agree = pct(chk["top1_agreement_with_eager"]) if "accuracy" in chk else "-"
-        deleg = "all" if f["delegates"] and not f["non_delegated_ops"] else (
-            "none (portable)" if not f["delegates"] else f"partial: {f['non_delegated_ops']}"
+        deleg = (
+            "all"
+            if f["delegates"] and not f["non_delegated_ops"]
+            else ("none (portable)" if not f["delegates"] else f"partial: {f['non_delegated_ops']}")
         )
         out.append(
             f"| `{f['file']}` | {f['target']} | {f['bytes'] / 1e6:.1f} MB | {deleg} "
             f"| {acc} | {agree} |"
         )
-    n_check = next((f["check"]["photos"] for f in man["files"] if "photos" in f.get("check", {})), 0)
+    n_check = next(
+        (f["check"]["photos"] for f in man["files"] if "photos" in f.get("check", {})), 0
+    )
     out.append(f"\nCheck set: {n_check} test photos.\n")
 
     if bench:
@@ -124,21 +141,25 @@ def main() -> None:
         out.append("")
 
     out.append("## How to use\n")
-    out.append("Input: `float32 [1, 3, 224, 224]`, RGB in `[0, 1]`, contiguous NCHW. "
-               "Take the center square of side `short_side * 224 / 256` and scale it to 224. "
-               "Normalization and softmax are inside the program. "
-               "Output: probabilities over `classes` in `manifest.json`.\n")
-    out.append("```python\nfrom executorch.runtime import Runtime\nimport torch\n\n"
-               "method = Runtime.get().load_program(\"shamba_crop_health_xnnpack_int8.pte\")"
-               ".load_method(\"forward\")\n"
-               "probs = method.execute([torch.rand(1, 3, 224, 224)])[0]\n```\n")
+    out.append(
+        "Input: `float32 [1, 3, 224, 224]`, RGB in `[0, 1]`, contiguous NCHW. "
+        "Take the center square of side `short_side * 224 / 256` and scale it to 224. "
+        "Normalization and softmax are inside the program. "
+        "Output: probabilities over `classes` in `manifest.json`.\n"
+    )
+    out.append(
+        "```python\nfrom executorch.runtime import Runtime\nimport torch\n\n"
+        'method = Runtime.get().load_program("shamba_crop_health_xnnpack_int8.pte")'
+        '.load_method("forward")\n'
+        "probs = method.execute([torch.rand(1, 3, 224, 224)])[0]\n```\n"
+    )
     out.append("Or with the CLI: `shamba predict leaf.jpg --lang sw`.\n")
 
     out.append("## Training\n")
     out.append(
         f"- Backbone: `{man['backbone']}` (ImageNet-1k weights from timm), full fine-tune.\n"
-        f"- Data: {sum(r['support'] for r in m['per_class'].values())} test photos shown above; "
-        "per-class caps of 1,000 photos; stratified 80/10/10 split (beans keeps its own split).\n"
+        f"- Data: {split_text}. Per-class cap of 1,000 photos. "
+        "Stratified 80/10/10 split (beans keeps its own split).\n"
         "- Recipe: AdamW, cosine schedule with warm-up, label smoothing 0.1, class-balanced "
         "sampling, random resized crop, flips, rotation, colour jitter, blur, random erasing.\n"
         "- Hardware: 8-core laptop CPU, no GPU.\n"
@@ -155,14 +176,16 @@ def main() -> None:
     out.append("## Data sources\n")
     out.append("| Source | Region | Licence (Hub tag) |\n|---|---|---|")
     for src in cfg.sources:
-        out.append(f"| [`{src['repo']}`](https://huggingface.co/datasets/{src['repo']}) "
-                   f"| {src['region']} | {src['license']} |")
+        out.append(
+            f"| [`{src['repo']}`](https://huggingface.co/datasets/{src['repo']}) "
+            f"| {src['region']} | {src['license']} |"
+        )
     out.append("")
 
     out.append("## Limits\n")
     out.append(
         "- Only the 14 classes listed. A photo of another crop or disease still gets one of "
-        "these labels. The apps show \"Not sure\" below 45% confidence and ask for a new photo.\n"
+        'these labels. The apps show "Not sure" below 45% confidence and ask for a new photo.\n'
         "- Test photos come from the same sources as training photos. Accuracy on photos from "
         "new farms, phones and seasons will be lower. A field pilot must measure it.\n"
         "- The cassava mirror's licence tag is MIT, but the photos come from the Kaggle 2020 "

@@ -12,13 +12,23 @@ from pathlib import Path
 import torch
 
 
+def _cpu_name() -> str:
+    try:
+        for line in Path("/proc/cpuinfo").read_text().splitlines():
+            if line.startswith("model name"):
+                return line.split(":", 1)[1].strip()
+    except OSError:
+        pass
+    return f"{platform.machine()} {platform.processor()}".strip()
+
+
 def run(models_dir: str, runs: int = 30) -> dict:
     from executorch.runtime import Runtime
 
     manifest = json.loads((Path(models_dir) / "manifest.json").read_text())
     x = torch.rand(*manifest["input"]["shape"])
     results = {
-        "machine": f"{platform.machine()} {platform.processor() or ''}".strip(),
+        "machine": _cpu_name(),
         "cpus": os.cpu_count(),
         "runs": runs,
         "models": {},
