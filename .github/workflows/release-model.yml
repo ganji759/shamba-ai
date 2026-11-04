@@ -35,7 +35,7 @@ jobs:
       RELEASE_TAG: ${{ inputs.release_tag }}
       GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v5
         with:
           python-version: "3.12"
@@ -93,7 +93,7 @@ jobs:
       VERSION: ${{ inputs.version }}
       VITE_BASE: /
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 22
